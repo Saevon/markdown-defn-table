@@ -14,14 +14,14 @@ class DefnTableExtension(Extension):
         '''
         md.registerExtension(self)
         md.preprocessors.add(
-            'paired-list',
+            'defn-table',
             DefnTablePreprocessor(md),
             "_begin",
         )
 
 class DefnTablePreprocessor(Preprocessor):
     OPEN_RE = re.compile(
-        r'^~ Paired List',
+        r'^~ Defn Table',
         re.DOTALL,
     )
 
@@ -68,7 +68,7 @@ class DefnTablePreprocessor(Preprocessor):
         return new_lines
 
     def on_open(self, match, line):
-        return ['<div markdown=1 class="paired-list">', ' | ', '-|-']
+        return ['<div markdown=1 class="defn-table">', ' | ', '-|-']
 
     def on_close(self, match, line):
         return ['</div>']

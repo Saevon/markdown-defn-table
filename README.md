@@ -22,7 +22,7 @@ Activate the `defn_table` extension and use the following markup:
 Would generate the following
 
 ```
-<div class="paired-list" markdown=1>
+<div class="defn-table" markdown=1>
  |
 -|-
 `ENABLE` | **enables** the app
