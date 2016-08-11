@@ -16,7 +16,7 @@ class DefnTableExtension(Extension):
         md.preprocessors.add(
             'paired-list',
             DefnTablePreprocessor(md),
-            "_end"
+            "_begin",
         )
 
 class DefnTablePreprocessor(Preprocessor):
