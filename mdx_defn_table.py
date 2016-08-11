@@ -7,19 +7,19 @@ from markdown.preprocessors import Preprocessor
 import re
 
 
-class PairedListExtension(Extension):
+class DefnTableExtension(Extension):
     def extendMarkdown(self, md, md_globals):
         '''
-        Adds the PairedListExtension to Markdown
+        Adds the DefnTableExtension to Markdown
         '''
         md.registerExtension(self)
         md.preprocessors.add(
             'paired-list',
-            PairedListPreprocessor(md),
+            DefnTablePreprocessor(md),
             "_end"
         )
 
-class PairedListPreprocessor(Preprocessor):
+class DefnTablePreprocessor(Preprocessor):
     OPEN_RE = re.compile(
         r'^~ Paired List',
         re.DOTALL,
@@ -36,7 +36,7 @@ class PairedListPreprocessor(Preprocessor):
     )
 
     def __init__(self, md):
-        super(PairedListPreprocessor, self).__init__(md)
+        super(DefnTablePreprocessor, self).__init__(md)
 
     def run(self, lines):
         is_open = False
@@ -44,17 +44,17 @@ class PairedListPreprocessor(Preprocessor):
         new_lines = []
         for line in lines:
             if is_open:
-                match = PairedListPreprocessor.CLOSE_RE.search(line)
+                match = DefnTablePreprocessor.CLOSE_RE.search(line)
                 if match:
                     is_open = False
                     data = self.on_close(match, line)
                 else:
-                    match = PairedListPreprocessor.DATA_RE.search(line)
+                    match = DefnTablePreprocessor.DATA_RE.search(line)
                     if match:
                         data = self.on_data(match, line)
             else:
                 # See if this opens a list
-                match = PairedListPreprocessor.OPEN_RE.search(line)
+                match = DefnTablePreprocessor.OPEN_RE.search(line)
                 if match:
                     is_open = True
                     data = self.on_open(match, line)
@@ -78,4 +78,4 @@ class PairedListPreprocessor(Preprocessor):
 
 
 def makeExtension(configs=None):
-    return PairedListExtension(configs=configs)
+    return DefnTableExtension(configs=configs)

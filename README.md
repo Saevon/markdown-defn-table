@@ -7,11 +7,11 @@ It requires PHP style tables to be enabled.
 
 # Installation
 
-    $ pip install git+git://github.com/Saevon/markdown-paired-list.git
+    $ pip install git+git://github.com/Saevon/markdown-defn-table.git
 
 # Usage
 
-Activate the `alerts` extension and use the following markup:
+Activate the `defn_table` extension and use the following markup:
 
 ```
 ~ Paired List
@@ -34,7 +34,7 @@ Would generate the following
 
 # Troubleshooting
 
-Please consider using [Github issues tracker](http://github.com/Saevon/markdown-paired-list/issues) to submit bug reports or feature requests.
+Please consider using [Github issues tracker](http://github.com/Saevon/markdown-defn-table/issues) to submit bug reports or feature requests.
 
 
 # License
