@@ -21,7 +21,7 @@ class DefnTableExtension(Extension):
 
 class DefnTablePreprocessor(Preprocessor):
     OPEN_RE = re.compile(
-        r'^~ Defn Table',
+        r'^!defn_table!',
         re.DOTALL,
     )
 

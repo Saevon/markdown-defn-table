@@ -14,7 +14,7 @@ It requires PHP style tables to be enabled.
 Activate the `defn_table` extension and use the following markup:
 
 ```
-~ Paired List
+!defn_table!
 `ENABLE`: **enables** the app
 `DEBUG`: turns on debug mode
 ```
